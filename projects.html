@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Omidreza Tavakoly</title>
+<meta name="description" content="Telegram bots, trading systems, and backend platforms — solo-built and shipped as part of AISupportCloud and Sarlak Academy.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><span class="dot"></span><b>omid@backend</b>:~$ ls services/</span>
+    <span>8 running</span>
+  </div>
+</div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">Omid<span>rez</span>a Tavakoly</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero" style="padding-bottom: 20px;">
+    <p class="eyebrow">projects</p>
+    <h1 style="font-size: clamp(34px, 5vw, 48px);">Bots and backends</h1>
+    <p class="summary">
+      Split into work built solo and work built with a team, under an organization. Same
+      discipline either way — the org projects just came with more stakeholders.
+    </p>
+  </header>
+
+  <section id="personal">
+    <p class="section-label">personal projects</p>
+    <h2 class="section-title">Built and run solo</h2>
+    <div class="projects">
+
+      <article class="card" id="freelance-scraper">
+        <div class="card-head">
+          <span class="route"><span class="verb">telegram://</span>freelance-job-scraper</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">Freelance Job Scraper &amp; Notifier</h3>
+        <p class="desc">
+          Self-hosted watcher for freelance marketplaces — Karlancer, Ponisha, Kaya,
+          Freelancer.com. Polls each site's adapter, writes new listings to Postgres, and
+          pushes them to Telegram the moment they land. A local Ollama model can draft a
+          proposal on tap, queued through a separate worker so the bot loop never blocks
+          on inference.
+        </p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">React admin</span>
+          <span class="tag">Telegram Bot API</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">Docker Compose</span>
+        </div>
+        <div class="card-foot">multi-adapter scraper · REST API + worker + admin UI · site config and polling live in a React panel, not code</div>
+      </article>
+
+      <article class="card" id="lenio">
+        <div class="card-head">
+          <span class="route"><span class="verb">platform://</span>lenio-backend</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">LENIO — Parking &amp; EV Charging Backend</h3>
+        <p class="desc">
+          Backend for a parking and EV-charging app. Parking sessions run on PostGIS
+          geo-zones with cost and subscription-discount calculation; EV sessions bill by
+          energy used. Stripe handles payments and wallet top-ups with idempotency keys,
+          OTP login goes out over Twilio SMS behind RS256-signed JWTs with refresh rotation,
+          and a plate-recognition webhook feeds camera events into parking sessions
+          automatically.
+        </p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">PostgreSQL / PostGIS</span>
+          <span class="tag">Redis</span>
+          <span class="tag">NATS</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">Twilio</span>
+          <span class="tag">Firebase FCM</span>
+        </div>
+        <div class="card-foot">clean architecture across parking, EV charging, billing, support, and referrals as separate domains</div>
+      </article>
+
+      <article class="card" id="fx-bot">
+        <div class="card-head">
+          <span class="route"><span class="verb">telegram://</span>fx-trading-bot</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">FX Trading Bot</h3>
+        <p class="desc">
+          Conversational trading front-end for an FX/crypto platform, built entirely on
+          Telegram's native keyboards. Handles multi-step registration, opening and closing
+          trades, live position tracking, and account/accounting views, with prices streamed
+          over a persistent WebSocket connection to the trading API.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">python-telegram-bot</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">conversation state</span>
+        </div>
+        <div class="card-foot">ConversationHandler-driven flows for registration, trades, and copy-trading</div>
+      </article>
+
+      <article class="card" id="crypex">
+        <div class="card-head">
+          <span class="route"><span class="verb">telegram://</span>crypex-quote-bot</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">Crypex Quote Bot</h3>
+        <p class="desc">
+          Live bid/ask broadcaster for a Telegram trading group. A small pool of bots takes
+          turns posting so no single token hits Telegram's rate limit, while a WebSocket feed
+          keeps quotes updating in place — timestamped in the Jalali calendar for the
+          audience it was built for.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">pyTelegramBotAPI</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">multi-bot rotation</span>
+        </div>
+        <div class="card-foot">edits a single in-place message per symbol instead of spamming the channel</div>
+      </article>
+
+      <article class="card" id="ai-support">
+        <div class="card-head">
+          <span class="route"><span class="verb">POST</span>/auth/register</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">AI Support Chatbot — Backend</h3>
+        <p class="desc">
+          Dockerized API behind a support-chat product: JWT access + opaque refresh tokens,
+          role-based access across super-admin / admin / user tiers, OTP-verified multi-step
+          registration, and full Swagger docs generated from the handlers.
+        </p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Gin</span>
+          <span class="tag">GORM</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">JWT</span>
+          <span class="tag">Swagger</span>
+        </div>
+        <div class="card-foot">department-scoped RBAC, bcrypt, rotating refresh tokens</div>
+      </article>
+
+      <article class="card" id="mafia">
+        <div class="card-head">
+          <span class="route"><span class="verb">wss://</span>mafia-game/events</span>
+          <span class="status-pill private">private repo</span>
+        </div>
+        <h3 class="proj-title">Mafia — Enterprise Game Backend</h3>
+        <p class="desc">
+          The largest system in the portfolio: a real-time social-deduction game backend
+          built hexagonal, CQRS, and event-sourced from the ground up. WebRTC SFU for in-game
+          voice, wallet and store, ranked leagues, an admin panel with audit trails, and a
+          Kubernetes + Terraform pipeline behind it. 150+ files, 10k+ lines.
+        </p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">CQRS / Event Sourcing</span>
+          <span class="tag">WebRTC SFU</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Terraform</span>
+        </div>
+        <div class="card-foot">shows the architecture end of the range — the same discipline behind the smaller bots, scaled up</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="org">
+    <p class="section-label">organization work</p>
+    <h2 class="section-title">Built with a team</h2>
+    <p class="section-intro">Repositories owned by organizations I contribute to on GitHub, rather than my personal account.</p>
+    <div class="projects">
+
+      <article class="card" id="sarlak-backend">
+        <div class="card-head">
+          <span class="route"><span class="verb">POST</span>/backend/sarlak-academy</span>
+          <span class="status-pill org">org · SarlakAcademy</span>
+        </div>
+        <h3 class="proj-title">Sarlak Academy Backend</h3>
+        <p class="desc">
+          Core backend for an online learning platform, in Go with Fiber and clean
+          architecture. Phone + OTP login and registration in one flow, Zarinpal payment
+          integration, Swagger-documented API, and a packaged offline-deploy path for
+          low-connectivity environments.
+        </p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Fiber</span>
+          <span class="tag">Clean Architecture</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Zarinpal</span>
+          <span class="tag">Docker</span>
+        </div>
+        <div class="card-foot">OTP-only auth — no passwords; new numbers are registered and logged in on first verify</div>
+      </article>
+
+      <article class="card" id="bot-salad">
+        <div class="card-head">
+          <span class="route"><span class="verb">POST</span>/rag/query</span>
+          <span class="status-pill org">org · AISupportCloud-ASC</span>
+        </div>
+        <h3 class="proj-title">AI Support — RAG Engine</h3>
+        <p class="desc">
+          FastAPI service that turns uploaded documents into a queryable knowledge base:
+          PDFs are chunked and embedded, indexed in FAISS, stored in S3, and served through a
+          retrieval-augmented chain running on a self-hosted Ollama model, with automatic
+          language detection for replies.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">AWS S3</span>
+        </div>
+        <div class="card-foot">retrieval-augmented generation over a private document set, not a general-purpose chat model</div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-inner">
+      <div>
+        <p class="foot-title">Let's talk backend.</p>
+        <p class="foot-sub">omidtavakoly1523@gmail.com · +968 9516 8692</p>
+      </div>
+      <div class="foot-links">
+        <a class="pill" href="contact.html">Contact</a>
+        <a class="pill" href="https://github.com/omidtavakoly">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="assets/theme.js" defer></script>
+</body>
+</html>
