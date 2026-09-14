@@ -268,6 +268,28 @@ h2.section-title { font-family: var(--font-display); font-size: 30px; font-weigh
 .card-foot a { color: var(--accent); text-decoration: none; }
 .card-foot a:hover { text-decoration: underline; }
 
+/* ---------- stack page ---------- */
+.stack-page-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.stack-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 24px 26px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.stack-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: 0 16px 30px -20px var(--shadow-color-strong); }
+.stack-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.stack-card-head .icon-badge {
+  width: 36px; height: 36px; border-radius: var(--radius-sm); flex-shrink: 0;
+  background: var(--accent-soft); color: var(--accent);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.stack-card-head .icon-badge .icon { width: 18px; height: 18px; }
+.stack-card-head h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; margin: 0; }
+.stack-primary { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 14px; }
+.tag-primary {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent);
+  background: var(--accent-soft); border: 1px solid transparent; padding: 6px 13px; border-radius: var(--radius-sm);
+}
+.stack-secondary { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px dashed var(--border); }
+
 /* ---------- deployment log / experience timeline ---------- */
 .timeline { display: flex; flex-direction: column; }
 .tl-item { display: grid; grid-template-columns: 132px 28px 1fr; column-gap: var(--space-5); padding-bottom: var(--space-8); }
